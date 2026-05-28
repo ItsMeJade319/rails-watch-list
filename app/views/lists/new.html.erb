@@ -1,4 +1,11 @@
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+
+
+<div class="container container-fluid align-items-center pt-5">
+  <h1>Create a new List</h1>
+  <div class="container border p-3 bg-light">
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Create list", class: 'btn btn-primary my-submit' %>
+    <% end %>
+  </div>
+</div>

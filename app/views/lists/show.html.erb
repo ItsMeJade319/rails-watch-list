@@ -1,14 +1,27 @@
-<h1><%= @list.name %></h1>
 
-<ul>
-<% @bookmarks.each do |bookmark|  %>
-  <% movie = Movie.find(bookmark.movie_id) %>
-  <li><%= movie.title %> - <%= bookmark.comment %> <%= link_to "Delete",
-  list_bookmark_path(@list, bookmark.id),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-</li>
-<% end %>
-</ul>
-
-<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+<div class="container pt-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @list.name %></h1>
+    <div>
+      <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+      <%= link_to "Delete this list", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+    </div>
+  </div>
+  <hr>
+  <div style="grid-template-columns: 1fr 1fr 1fr 1fr;" class="pt-5 d-grid gap-3">
+      <% @bookmarks.each do |bookmark|  %>
+        <% movie = Movie.find(bookmark.movie_id) %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= movie.title %></h5>
+            <p class="card-text"><%= movie.overview %></p>
+            <%= link_to "Delete",
+            list_bookmark_path(@list, bookmark.id),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+          <hr>
+          <p class="card-text">"<%= bookmark.comment %>"</p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
