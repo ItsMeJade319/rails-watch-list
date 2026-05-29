@@ -11,6 +11,9 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+gem "cloudinary"
+gem "dotenv-rails"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -63,5 +66,5 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-gem 'rspec-rails', group: [ :test ]
-gem 'rails-controller-testing', group: [ :test ]
+gem "rspec-rails", group: [ :test ]
+gem "rails-controller-testing", group: [ :test ]
